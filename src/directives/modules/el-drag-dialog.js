@@ -69,7 +69,7 @@ export default {
         vnode.child.$emit('dragDialog');
       };
 
-      document.onmouseup = function(e) {
+      document.onmouseup = function() {
         document.onmousemove = null;
         document.onmouseup = null;
       };

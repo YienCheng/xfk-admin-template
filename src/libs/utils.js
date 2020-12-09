@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { isArray, isEmpty, isNil } from '@/libs/tools';
+import { isArray, isEmpty } from '@/libs/tools';
 
 const { VUE_APP_TITLE, VUE_APP_BRAND, VUE_APP_DEFAULT_ROLE_LEVEL } = process.env;
 const title = `${VUE_APP_BRAND}${VUE_APP_TITLE}`;

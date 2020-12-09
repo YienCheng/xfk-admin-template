@@ -47,7 +47,7 @@ const mutations = {
 
 const actions = {
   // 用户登录
-  async login({ commit }, payload) {
+  async login(context, payload) {
     const { data = {} } = await login(payload);
     return data;
   },

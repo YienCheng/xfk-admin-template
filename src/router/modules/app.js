@@ -20,11 +20,6 @@ export default [
     hidden: true,
     meta: { title: '登录', roleLevel: 0 }
   },
-  // {
-  //   path: '/auth-redirect',
-  //   component: () => import('@/views/login/auth-redirect'),
-  //   hidden: true
-  // },
   {
     path: '/404',
     component: () => import('@/views/error-page/404'),
@@ -61,8 +56,8 @@ export default [
       {
         path: 'index',
         component: () => import('@/views/profile/index'),
-        name: 'Profile',
-        meta: { title: 'Profile', icon: 'user', noCache: true, roleLevel: 1 }
+        name: 'UserCenter',
+        meta: { title: '用户中心', icon: 'user', noCache: true, roleLevel: 1 }
       }
     ]
   }

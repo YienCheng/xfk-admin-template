@@ -1,13 +1,13 @@
 const path = require('path');
 const vConsolePlugin = require('vconsole-webpack-plugin');
 const isDevelopment = process.env.NODE_ENV === 'development';
-const enableMobileConsole = JSON.parse(process.env.ENABLE_MOBILE_CONSOLE);
+const enableMobileConsole = JSON.parse(process.env.ENABLE_MOBILE_CONSOLE || false);
 const resolve = (dir) => path.resolve(__dirname, dir);
+
 /**
  * If you want change default settings,
  * place read vue-cli@3 configuration reference: https://cli.vuejs.org/config/
  */
-
 module.exports = {
   publicPath: process.env.VUE_APP_BASE_URL,
   lintOnSave: isDevelopment ? false : false,
@@ -42,9 +42,9 @@ module.exports = {
   },
   devServer: {
     proxy: {
-      '/xxxx': {
+      '/usercenter': {
         target: process.env.PROXY_USER_CENTER_BASE_URL,
-        pathRewrite: { '^/xxxx': '' },
+        pathRewrite: { '^/usercenter': '' },
         changeOrigin: true
       },
       '/api': {
