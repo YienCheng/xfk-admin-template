@@ -10,6 +10,7 @@ import permission from '@/plugins/permission';
 import filters from '@/filters';
 import icon from '@/icons';
 import directives from '@/directives';
+import components from '@/components';
 
 import '@/styles/element-variables.scss';
 import '@/styles/index.scss';
@@ -45,6 +46,11 @@ Vue.use(icon);
  * register global directives
  */
 Vue.use(directives);
+
+/**
+ * register global components
+ */
+Vue.use(components);
 
 /**
  * close production tip
