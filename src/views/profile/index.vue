@@ -36,7 +36,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import { changePassword } from '@/api/login';
+import { changePassword } from '@/api/modules/login';
 
 export default {
   name: 'UserCenter',

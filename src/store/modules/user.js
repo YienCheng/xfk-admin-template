@@ -1,4 +1,4 @@
-import { getUserInfo, login, getMenuList, logout } from '@/api/login';
+import { getUserInfo, login, getMenuList, logout } from '@/api/modules/login';
 import { getToken, setToken, removeToken, generateMenuList } from '@/libs/utils';
 import routes from '@/router/routes';
 

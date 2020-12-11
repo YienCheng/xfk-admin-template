@@ -81,7 +81,7 @@
 </template>
 
 <script>
-import { getCaptcha } from '@/api/login';
+import { getCaptcha } from '@/api/modules/login';
 import { mapActions } from 'vuex';
 const appCode = process.env.VUE_APP_CODE;
 

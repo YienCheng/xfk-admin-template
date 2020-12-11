@@ -11,6 +11,7 @@ import filters from '@/filters';
 import icon from '@/icons';
 import directives from '@/directives';
 import components from '@/components';
+import api from '@/api';
 
 import '@/styles/element-variables.scss';
 import '@/styles/index.scss';
@@ -51,6 +52,11 @@ Vue.use(directives);
  * register global components
  */
 Vue.use(components);
+
+/**
+ * register global api
+ */
+Vue.use(api);
 
 /**
  * close production tip
