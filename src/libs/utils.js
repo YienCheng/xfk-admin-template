@@ -95,6 +95,7 @@ export function removeClass(ele, cls) {
  * @returns {*}
  */
 export const hasPermission = (value, roles) => {
+  if (!value) return true;
   if (typeof value === 'string') value = value.split(',');
   if (!isArray(value)) value = [];
   return roles.some((role) => value.includes(role));

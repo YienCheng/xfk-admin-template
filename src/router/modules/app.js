@@ -33,20 +33,6 @@ export default [
     meta: { roleLevel: 1 }
   },
   {
-    path: '/',
-    component: Layout,
-    meta: { roleLevel: 1 },
-    redirect: '/home',
-    children: [
-      {
-        path: 'home',
-        component: () => import('@/views/home/index'),
-        name: 'Home',
-        meta: { title: '首页', icon: 'dashboard', affix: true, roleLevel: 1 }
-      }
-    ]
-  },
-  {
     path: '/profile',
     component: Layout,
     redirect: '/profile/index',
@@ -58,6 +44,20 @@ export default [
         component: () => import('@/views/profile/index'),
         name: 'UserCenter',
         meta: { title: '用户中心', icon: 'user', noCache: true, roleLevel: 1 }
+      }
+    ]
+  },
+  {
+    path: '/',
+    component: Layout,
+    meta: { roleLevel: 1 },
+    redirect: '/home',
+    children: [
+      {
+        path: 'home',
+        component: () => import('@/views/home/index'),
+        name: 'Home',
+        meta: { title: '首页', icon: 'dashboard', affix: true, roleLevel: 1 }
       }
     ]
   }

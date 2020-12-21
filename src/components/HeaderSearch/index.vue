@@ -140,7 +140,7 @@ export default {
     },
     querySearch(query) {
       if (query !== '') {
-        this.options = this.fuse.search(query);
+        this.options = this.fuse.search(query).map((item) => item?.item);
       } else {
         this.options = [];
       }
