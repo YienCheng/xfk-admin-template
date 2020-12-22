@@ -58,7 +58,8 @@ const actions = {
     // 获取用户菜单信息
     const { list: menuList } = await getMenuList();
     // 生成用户权限列表
-    const roles = menuList.filter((item) => item.component).map((item) => item.component);
+    const roles = menuList.filter((item) => item.perms).map((item) => item.perms);
+    // 用户相关信息
     const { userName, avatar, introduction } = userInfo;
     // 设置用户信息及菜单
     commit('SET_ROLES', roles);
@@ -66,7 +67,9 @@ const actions = {
     commit('SET_AVATAR', avatar);
     commit('SET_INTRODUCTION', introduction);
     commit('SET_HAS_LOGIN', true);
-    commit('sideMenu/SET_MENU_LIST', generateMenuList(routes, roles), { root: true });
+    commit('sideMenu/SET_MENU_LIST', generateMenuList(routes, roles, menuList), {
+      root: true
+    });
     return { userName, avatar, introduction, roles };
   },
   // 用户退出登录

@@ -12,7 +12,7 @@ Vue.use(Router);
 
 /**
  *
- * hidden: true                   侧边栏是否显示当前页面：true/false
+ * hidden: true                   侧边栏是否显示当前页面：true/false, 如果后台返回该菜单的visible属性为false，则次属性无效
  * alwaysShow: true               当菜单侧边栏只有一个子菜单时是否展示根菜单：true/false
  * redirect: noRedirect           面包屑导航点击跳转，如果设置为 noRedirect 将不进行跳转
  * name:'router-name'             路由name，必须设置，必须和页面组件name值一致，不然缓存不生效

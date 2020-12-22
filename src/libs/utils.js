@@ -1,5 +1,6 @@
 import Cookies from 'js-cookie';
 import { isArray, isEmpty } from '@/libs/tools';
+import path from 'path';
 
 const { VUE_APP_TITLE, VUE_APP_BRAND, VUE_APP_DEFAULT_ROLE_LEVEL } = process.env;
 const title = `${VUE_APP_BRAND}${VUE_APP_TITLE}`;
@@ -102,18 +103,31 @@ export const hasPermission = (value, roles) => {
 };
 
 /**
+ * 获取路由相应的菜单
+ * @param menuList
+ * @param route
+ * @param basePath
+ * @returns {*}
+ */
+export const getRouteMenu = (menuList, route, basePath = '/') => {
+  return menuList.find((menu) => menu.path === path.resolve(basePath, route.path));
+};
+
+/**
  * 递归生成菜单
  * @param routes
  * @param roles
  */
-export const generateMenuList = (routes, roles) => {
+export const generateMenuList = (routes, roles, menuList, basePath = '/') => {
   return routes.reduce((list, route) => {
     const routeRoles = route?.meta?.roles;
     const roleLevel = route?.meta?.roleLevel ?? defaultRoleLevel;
     const tmp = { ...route };
-    if (roleLevel === 1 || hasPermission(routeRoles, roles)) {
+    const menu = getRouteMenu(menuList, route, basePath);
+    const visible = menu ? menu.visible : true;
+    if ((roleLevel === 1 || hasPermission(routeRoles, roles)) && visible) {
       if (tmp.children) {
-        tmp.children = generateMenuList(tmp.children, roles);
+        tmp.children = generateMenuList(tmp.children, roles, menuList, tmp.path);
       }
       list.push(tmp);
     }
